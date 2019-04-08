@@ -1,6 +1,7 @@
 package com.example.xyz.NearBy;
 
-import com.example.mahmud.travelmate.Interface.NearByResponseServices;
+
+import com.example.xyz.Interface.NearByResponseServices;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

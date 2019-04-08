@@ -5,6 +5,7 @@
     <string name="drawer_closed">Closed</string>
     <string name="facebook_app_id">422355375001054</string>
     <string name="fb_login_protocol_scheme">fb422355375001054</string>
+    <string name="api_key_nearby">AIzaSyBz0QzCaukHIGO765nkfp7BqEQsPo39Ufo</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
