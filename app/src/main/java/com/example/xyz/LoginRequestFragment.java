@@ -44,6 +44,7 @@ public class LoginRequestFragment extends Fragment {
     ImageView imageView;
     TextView txtUsername, txtEmail;
     Context mContext;
+    private Button mSkipButton;
 
     @Override
     public void onAttach(Context context) {
@@ -65,11 +66,19 @@ public class LoginRequestFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_login,container,false);
+        View v = inflater.inflate(R.layout.fragment_login_request,container,false);
         loginButton = v.findViewById(R.id.login_button);
         imageView = v.findViewById(R.id.imageView);
         txtUsername = v.findViewById(R.id.txtUsername);
         txtEmail = v.findViewById(R.id.txtEmail);
+        mSkipButton = v.findViewById(R.id.skip_btn);
+
+        mSkipButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
         boolean loggedOut = AccessToken.getCurrentAccessToken() == null;
 
@@ -94,6 +103,7 @@ public class LoginRequestFragment extends Fragment {
         };
         fbTracker.startTracking();
         loginButton.setReadPermissions(Arrays.asList("email", "public_profile"));
+
         callbackManager = CallbackManager.Factory.create();
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
