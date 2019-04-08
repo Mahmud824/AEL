@@ -5,6 +5,8 @@ import android.os.Build;
 import android.os.PersistableBundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
@@ -15,11 +17,17 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout mDrawer;
     private ActionBarDrawerToggle mToggle;
+    private FragmentManager mFragmentManager;
+    private FirebaseAuth mFirebaseAuth;
+    private FirebaseUser mFirebaseUser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +42,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
             Objects.requireNonNull(getSupportActionBar()).setHomeButtonEnabled(true);
+        }
+        getUserCredential();
+        mFragmentManager = getSupportFragmentManager();
+        if (mFirebaseUser == null){
+            Toast.makeText(this, "User is null", Toast.LENGTH_SHORT).show();
+            FragmentTransaction ft = mFragmentManager.beginTransaction();
+            ft.setCustomAnimations(android.R.anim.slide_in_left,android.R.anim.slide_out_right);
+            ft.replace(R.id.fragment_container,new LoginRequestFragment());
+            ft.commit();
         }
     }
 
@@ -85,5 +102,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Toast.makeText(this, "item_five", Toast.LENGTH_SHORT).show();
         }
         return true;
+    }
+    private void getUserCredential() {
+        mFirebaseAuth = FirebaseAuth.getInstance();
+        mFirebaseUser = mFirebaseAuth.getCurrentUser();
     }
 }

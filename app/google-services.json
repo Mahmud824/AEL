@@ -1,0 +1,35 @@
+{
+  "project_info": {
+    "project_number": "307381008465",
+    "firebase_url": "https://xyztest-4255a.firebaseio.com",
+    "project_id": "xyztest-4255a",
+    "storage_bucket": "xyztest-4255a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:307381008465:android:a21fdf502ce1f4f3",
+        "android_client_info": {
+          "package_name": "com.example.xyz"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCiNLk6apXt9x5d2CipZvOlANefxFbZx0g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "307381008465-kp1bgaja7cdbns6n47suvhcin35g2k4u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
